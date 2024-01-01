@@ -44,8 +44,6 @@ export default function MainContainer({}: IMainContainerProps) {
 
   useEffect(() => {
     const triggerNext = () => {
-      console.log("triggerNext");
-
       setIsVisible((oldIsVisible: boolean) => {
         if (oldIsVisible) {
           currentCharIndex.current = Math.floor(
