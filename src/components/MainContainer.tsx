@@ -67,7 +67,7 @@ export default function MainContainer({}: IMainContainerProps) {
   }, []);
 
   return (
-    <div className="p-10">
+    <div className="p-10 cursor-pointer">
       <CurrentCharacter charachter={character} />
       <CurrentCode code={natoAlphabet[character]} visible={isVisible} />
     </div>
