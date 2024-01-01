@@ -44,6 +44,8 @@ export default function MainContainer({}: IMainContainerProps) {
 
   useEffect(() => {
     const triggerNext = () => {
+      console.log("triggerNext");
+
       setIsVisible((oldIsVisible: boolean) => {
         if (oldIsVisible) {
           currentCharIndex.current = Math.floor(
@@ -57,19 +59,19 @@ export default function MainContainer({}: IMainContainerProps) {
       });
     };
 
-    window.document.addEventListener("touchstart", triggerNext);
-    window.document.addEventListener("click", triggerNext);
+    window.document.addEventListener("mousedown", triggerNext);
 
     return () => {
-      window.document.removeEventListener("touchstart", triggerNext);
-      window.document.removeEventListener("click", triggerNext);
+      window.document.removeEventListener("mousedown", triggerNext);
     };
   }, []);
 
   return (
-    <div className="p-10 cursor-pointer">
-      <CurrentCharacter charachter={character} />
-      <CurrentCode code={natoAlphabet[character]} visible={isVisible} />
+    <div className="cursor-pointer h-full flex flex-col justify-center items-center">
+      <div>
+        <CurrentCharacter charachter={character} />
+        <CurrentCode code={natoAlphabet[character]} visible={isVisible} />
+      </div>
     </div>
   );
 }
